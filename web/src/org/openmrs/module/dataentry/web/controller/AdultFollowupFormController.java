@@ -117,29 +117,41 @@ public class AdultFollowupFormController extends ParameterizableViewController {
 
 		// getting answers from concept of type coded
 		Collection<ConceptAnswer> opportunisticInfections = conceptService
-				.getConcept(Constants.OPPORTUNISTIC_INFECTIONS_ID).getAnswers();
+				.getConcept(Constants.OPPORTUNISTIC_INFECTIONS_ID) != null ? conceptService
+						.getConcept(Constants.OPPORTUNISTIC_INFECTIONS_ID).getAnswers() : null;
 		Collection<ConceptAnswer> systems = conceptService.getConcept(
-				Constants.SYSTEM_ID).getAnswers();
+				Constants.SYSTEM_ID) != null ? conceptService.getConcept(
+						Constants.SYSTEM_ID).getAnswers() : null;
 		Collection<ConceptSet> vitalSigns = conceptService.getConcept(
-				Constants.VITAL_SIGNS).getConceptSets();
+				Constants.VITAL_SIGNS) != null ? conceptService.getConcept(
+						Constants.VITAL_SIGNS).getConceptSets() : null;
 		Collection<ConceptAnswer> familyPlannings = conceptService.getConcept(
-				Constants.FAMILY_PLANNING).getAnswers();
+				Constants.FAMILY_PLANNING) != null ? conceptService.getConcept(
+						Constants.FAMILY_PLANNING).getAnswers() : null;
 		Collection<ConceptAnswer> tbResults = conceptService.getConcept(
-				Constants.TB_TEST_RESULT).getAnswers();
+				Constants.TB_TEST_RESULT) != null ? conceptService.getConcept(
+						Constants.TB_TEST_RESULT).getAnswers() : null;
 		Collection<ConceptAnswer> screenResults = conceptService.getConcept(
-				Constants.TB_SCREENING_RESULT).getAnswers();
+				Constants.TB_SCREENING_RESULT) != null ? conceptService.getConcept(
+						Constants.TB_SCREENING_RESULT).getAnswers() : null;
 		Collection<ConceptAnswer> professions = conceptService.getConcept(
-				Constants.MAIN_ACTIVITY).getAnswers();
+				Constants.MAIN_ACTIVITY) != null ? conceptService.getConcept(
+						Constants.MAIN_ACTIVITY).getAnswers() : null;
 		Collection<ConceptAnswer> civalStatus = conceptService.getConcept(
-				Constants.CIVIL_STATUS).getAnswers();
+				Constants.CIVIL_STATUS) != null ? conceptService.getConcept(
+						Constants.CIVIL_STATUS).getAnswers() : null;
 		Collection<ConceptAnswer> visitReasons = conceptService.getConcept(
-				Constants.REASON_FOR_VISIT).getAnswers();
+				Constants.REASON_FOR_VISIT) != null ? conceptService.getConcept(
+						Constants.REASON_FOR_VISIT).getAnswers() : null;
 		Collection<ConceptAnswer> nextVisitReasons = conceptService.getConcept(
-				Constants.NEXT_REASON_FOR_VISIT).getAnswers();
+				Constants.NEXT_REASON_FOR_VISIT) != null ? conceptService.getConcept(
+						Constants.NEXT_REASON_FOR_VISIT).getAnswers() : null;
 		Collection<ConceptAnswer> modeOfAdmission = conceptService.getConcept(
-				Constants.MODE_OF_ADMISSION).getAnswers();
+				Constants.MODE_OF_ADMISSION) != null ? conceptService.getConcept(
+						Constants.MODE_OF_ADMISSION).getAnswers() : null;
 		Collection<ConceptAnswer> partnerHIVStatus = conceptService.getConcept(
-				Constants.PARTNER_HIV_STATUS).getAnswers();
+				Constants.PARTNER_HIV_STATUS) != null ? conceptService.getConcept(
+						Constants.PARTNER_HIV_STATUS).getAnswers() : null;
 		Collection<ConceptAnswer> treatmentResults = new HashSet<ConceptAnswer>();
 		try {
 			treatmentResults = conceptService.getConcept(
@@ -149,23 +161,32 @@ public class AdultFollowupFormController extends ParameterizableViewController {
 					.info("Global property dataentry.oppInfTreatRes is not set to a valid concept.");
 		}
 		Collection<ConceptAnswer> whoStages = conceptService.getConcept(
-				Constants.WHO_STAGE).getAnswers();
+				Constants.WHO_STAGE) != null ? conceptService.getConcept(
+						Constants.WHO_STAGE).getAnswers() : null;
 		Collection<ConceptAnswer> relationships = conceptService.getConcept(
-				Constants.RELATIONSHIP_OF_RELATIVE_TO_PATIENT).getAnswers();
+				Constants.RELATIONSHIP_OF_RELATIVE_TO_PATIENT) != null ? conceptService.getConcept(
+						Constants.RELATIONSHIP_OF_RELATIVE_TO_PATIENT).getAnswers() : null;
 		Collection<ConceptAnswer> hivTestResults = conceptService.getConcept(
-				Constants.RESULT_OF_HIV_TEST).getAnswers();
+				Constants.RESULT_OF_HIV_TEST) != null ? conceptService.getConcept(
+						Constants.RESULT_OF_HIV_TEST).getAnswers() : null;
 		Collection<ConceptAnswer> presentSymptom = conceptService.getConcept(
-				Constants.SYM_PRES).getAnswers();
+				Constants.SYM_PRES) != null ? conceptService.getConcept(
+						Constants.SYM_PRES).getAnswers() : null;
 		Collection<ConceptAnswer> currentWhoHivStage = conceptService
-				.getConcept(Constants.CURRENT_WHO_HIV_STAGE).getAnswers();
+				.getConcept(Constants.CURRENT_WHO_HIV_STAGE) != null ? conceptService
+						.getConcept(Constants.CURRENT_WHO_HIV_STAGE).getAnswers() : null;
 		Collection<ConceptSet> whoStage1 = conceptService.getConcept(
-				Constants.WHO_STAGE_1).getConceptSets();
+				Constants.WHO_STAGE_1) != null ? conceptService.getConcept(
+						Constants.WHO_STAGE_1).getConceptSets() : null;
 		Collection<ConceptSet> whoStage2 = conceptService.getConcept(
-				Constants.WHO_STAGE_2).getConceptSets();
+				Constants.WHO_STAGE_2) != null ? conceptService.getConcept(
+						Constants.WHO_STAGE_2).getConceptSets() : null;
 		Collection<ConceptSet> whoStage3 = conceptService.getConcept(
-				Constants.WHO_STAGE_3).getConceptSets();
+				Constants.WHO_STAGE_3) != null ? conceptService.getConcept(
+						Constants.WHO_STAGE_3).getConceptSets() : null;
 		Collection<ConceptSet> whoStage4 = conceptService.getConcept(
-				Constants.WHO_STAGE_4).getConceptSets();
+				Constants.WHO_STAGE_4) != null ? conceptService.getConcept(
+						Constants.WHO_STAGE_4).getConceptSets() : null;
 
 		List<RelationshipType> relationshipTypes = Context.getPersonService()
 				.getAllRelationshipTypes();
@@ -267,12 +288,13 @@ public class AdultFollowupFormController extends ParameterizableViewController {
 					.getValueCoded().getName().getName();
 
 		opportunisticInfections = conceptService.getConcept(
-				Constants.OPPORTUNISTIC_INFECTIONS_ID).getAnswers();
-		systems = conceptService.getConcept(Constants.SYSTEM_ID).getAnswers();
-		vitalSigns = conceptService.getConcept(Constants.VITAL_SIGNS)
-				.getConceptSets();
-		familyPlannings = conceptService.getConcept(Constants.FAMILY_PLANNING)
-				.getAnswers();
+				Constants.OPPORTUNISTIC_INFECTIONS_ID) != null ? conceptService.getConcept(
+						Constants.OPPORTUNISTIC_INFECTIONS_ID).getAnswers() : null;
+		systems = conceptService.getConcept(Constants.SYSTEM_ID) != null ? conceptService.getConcept(Constants.SYSTEM_ID).getAnswers() : null;
+		vitalSigns = conceptService.getConcept(Constants.VITAL_SIGNS) != null ? conceptService.getConcept(Constants.VITAL_SIGNS)
+				.getConceptSets() : null;
+		familyPlannings = conceptService.getConcept(Constants.FAMILY_PLANNING) != null ? conceptService.getConcept(Constants.FAMILY_PLANNING)
+				.getAnswers() : null;
 //		visitReasons = conceptService.getConcept(Constants.REASON_FOR_VISIT)
 //				.getAnswers();
 
